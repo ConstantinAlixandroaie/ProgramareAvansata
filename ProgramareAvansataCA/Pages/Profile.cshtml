@@ -1,0 +1,30 @@
+﻿@page
+@model ProgramareAvansataCA.Pages.ProfileModel
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Profile</h1>
+
+<h2>My Collections</h2>
+<form method="post">
+    @if (Model.ViewModel.Collections.Count == 0)
+    {
+        <div>You have no collections.</div>
+    }
+    else
+    {
+        <ul>
+            @foreach (var item in Model.ViewModel.Collections)
+            {
+                <li>
+                    <div>
+                        @Html.RouteLink(item.Name, $"/Collections/{item.Id}")
+                        <button type="submit" asp-action="Delete" asp-route-id="@item.Id">Remove</button>
+                    </div>
+                </li>
+            }
+        </ul>
+    }
+</form>

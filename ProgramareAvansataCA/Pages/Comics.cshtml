@@ -1,0 +1,56 @@
+﻿@page "{qid?}"
+@model ProgramareAvansataCA.Pages.ComicsModel
+@{
+    ViewData["Title"] = "Comics";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@if (Model.IsById)
+{
+    <h1>@Model.SingleComicBook.Title</h1>
+
+    <img src="@Model.SingleComicBook.ImageUrl" alt="thumbnail" class="img-thumbnail" style="width:300px;height:300px" />
+    <table>
+        <tr>
+            <td>
+                <label for="title" class="font-weight-bold">Title :</label>
+                <span id="title">@Model.SingleComicBook.Title</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="auth" class="font-weight-bold">Author:</label>
+                <span id="auth">@Model.SingleComicBook.Author</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="desc" class="font-weight-bold">Description:</label>
+                <span id="desc">@Model.SingleComicBook.Description</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @if (Model.SingleComicBook.IssueDate != null)
+                {
+                    <label for="issue" class="font-weight-bold">Issued On :</label>
+                    <span id="issue">@Model.SingleComicBook.IssueDate</span>
+
+                }
+            </td>
+        </tr>
+    </table>
+}
+else
+{
+    <ul>
+        @foreach (var item in Model.ComicBooks)
+        {
+            <li>
+                <div>
+                    <a href="/Comics/@item.Id" title="@item.Title"> @item.Title</a>
+                </div>
+            </li>
+        }
+    </ul>
+}

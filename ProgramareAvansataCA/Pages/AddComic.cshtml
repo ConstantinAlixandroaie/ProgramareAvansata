@@ -1,0 +1,60 @@
+﻿@page
+@model ProgramareAvansataCA.Pages.AddComicModel
+@{
+    ViewData["Title"] = "AddComic";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>AddComic</h1>
+
+<form method="post">
+    <table>
+        <tr>
+            <td>
+                <label class="align-middle">Comic Title</label>
+            </td>
+            <td>
+                <input asp-for="comicBook.Title" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label class="align-middle">Comic Author</label>
+            </td>
+            <td>
+                <input asp-for="comicBook.Author" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label class="align-middle">Comic Image Url</label>
+            </td>
+            <td>
+                <input asp-for="comicBook.ImageUrl" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label class="align-middle">Comic Description</label>
+            </td>
+
+            <td>
+                <input asp-for="comicBook.Description" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label class="align-middle">Comic Issue Date</label>
+            </td>
+            <td>
+                <input asp-for="comicBook.IssueDate" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" asp-page-handler="Add" value="Add Comic"/>
+            </td>
+        </tr>
+    </table>
+
+</form>

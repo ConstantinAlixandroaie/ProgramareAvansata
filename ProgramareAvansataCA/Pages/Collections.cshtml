@@ -1,0 +1,42 @@
+﻿@page "{qid?}"
+@model ProgramareAvansataCA.Pages.CollectionsModel
+@{
+    ViewData["Title"] = "Collections";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<form method="post">
+
+    @if (Model.IsById)
+    {
+        <h1>Collection - @Model.SingleCollection.Name</h1>
+
+        <h2>Comic Books</h2>
+
+
+        @if (!Model.IsInUserCollection)
+        {
+            <button type="submit" asp-action="AddToUserCollections" asp-route-id="@Model.SingleCollection.Id">Add to Personal Collection</button>
+        }
+
+        <ul>
+            @foreach (var comic in Model.SingleCollection.ComicBooks)
+            {
+                <li>@Html.RouteLink(comic.Title, $"/Comics/{comic.Id}")</li>
+            }
+        </ul>
+    }
+    else
+    {
+        <ul>
+            @foreach (var item in Model.Collections)
+            {
+                <li>
+                    <div>
+                        @Html.RouteLink(item.Name, $"/Collections/{item.Id}")
+                    </div>
+                </li>
+            }
+        </ul>
+    }
+</form>
