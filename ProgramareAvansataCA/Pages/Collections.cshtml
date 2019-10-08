@@ -33,7 +33,7 @@
             {
                 <li>
                     <div>
-                        @Html.RouteLink(item.Name, $"/Collections/{item.Id}")
+                        <a href="/Collections/@item.Id" title="@item.Name"> @item.Name</a>
                     </div>
                 </li>
             }
