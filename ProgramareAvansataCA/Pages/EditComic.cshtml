@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{id}"
 @model ProgramareAvansataCA.Pages.EditComicModel
 @{
     ViewData["Title"] = "EditComic";
@@ -6,4 +6,58 @@
 }
 
 <h1>EditComic</h1>
+<form action="POST">
+    <table>
+        <thead class="font-weight-bold">
+            <tr>
+                <td>
+                </td>
+                <td>
+                    Edit Input
+                </td>
+            </tr>
+        </thead>
+        <tr>
+            <td>
+                <label>Comic Book Title</label>
+            </td>
+            <td>
+                <input asp-for="ComicBook.Title" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Comic Book Author</label>
+            </td>
+            <td>
+                <input asp-for="ComicBook.Author" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Comic Book Image</label>
+            </td>
+            <td>
+                <input asp-for="ComicBook.ImageUrl" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Comic Book Description</label>
+            </td>
+            <td>
+                <input asp-for="ComicBook.Description" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Comic Book Issue Date</label>
+            </td>
+            <td>
+                <input asp-for="ComicBook.IssueDate" type="datetime" />
+            </td>
+        </tr>
+    </table>
+    <input type="submit" asp-page-handler="Edit" value="Submit Changes"/>
+</form>
 
