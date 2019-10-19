@@ -23,6 +23,8 @@ namespace ProgramareAvansataCA.Pages
 
         [BindProperty]
         public bool IsById { get; set; }
+        [BindProperty]
+        public bool IsInEdit { get; set; }
 
         public ComicsModel(ComicsDbContext ctx)
         {

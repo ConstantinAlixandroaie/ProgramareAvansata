@@ -53,6 +53,11 @@ else
             <li>
                 <div>
                     <a href="/Comics/@item.Id" title="@item.Title"> @item.Title</a>
+                    <a href="/EditComic/@item.Id" class="btn-block">Edit</a>
+                   @*<form action="/EditComic/@item.Id">
+                        <button style="left" type="submit">Edit</button>
+                        @*<a href="/EditComic/@Model.SingleComicBook.Id">Edit</a>
+                    </form>*@
                 </div>
             </li>
         }
