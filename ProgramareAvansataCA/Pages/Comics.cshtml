@@ -54,10 +54,12 @@ else
                 <div>
                     <a href="/Comics/@item.Id" title="@item.Title"> @item.Title</a>
                     <a href="/EditComic/@item.Id" class="btn">Edit</a>
-                   @*<form action="/EditComic/@item.Id">
-                        <button style="left" type="submit">Edit</button>
-                        @*<a href="/EditComic/@Model.SingleComicBook.Id">Edit</a>
-                    </form>*@
+                    @*<button type="submit" asp-page-handler="delete" asp-route-id="@item.Id">Delete</button>*@
+                    @*<input type="submit" asp-page-handler="delete" asp-route-id="@item.Id" value="Delete" />*@
+                    @*<form action="/EditComic/@item.Id">
+            <button style="left" type="submit">Edit</button>S
+            @*<a href="/EditComic/@Model.SingleComicBook.Id">Edit</a>
+        </form>*@
                 </div>
             </li>
         }

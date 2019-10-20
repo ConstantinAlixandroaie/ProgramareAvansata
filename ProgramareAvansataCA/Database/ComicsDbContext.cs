@@ -1,5 +1,6 @@
 ﻿using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
+using ProgramareAvansataCA.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

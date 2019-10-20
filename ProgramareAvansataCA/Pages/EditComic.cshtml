@@ -6,20 +6,21 @@
 }
 
 <h1>EditComic</h1>
-<form action="POST">
-    <table>
+<form method="POST">
+    <table class="table">
         <thead class="font-weight-bold">
             <tr>
                 <td>
+                    Edit Input
                 </td>
                 <td>
-                    Edit Input
+                    <input type="hidden" asp-for="ComicBook.Id" value="@Model.comicId" />
                 </td>
             </tr>
         </thead>
         <tr>
             <td>
-                <label>Comic Book Title</label>
+                Comic Book Title
             </td>
             <td>
                 <input asp-for="ComicBook.Title" />
@@ -27,7 +28,7 @@
         </tr>
         <tr>
             <td>
-                <label>Comic Book Author</label>
+                Comic Book Author
             </td>
             <td>
                 <input asp-for="ComicBook.Author" />
@@ -35,7 +36,7 @@
         </tr>
         <tr>
             <td>
-                <label>Comic Book Image</label>
+                Comic Book Image
             </td>
             <td>
                 <input asp-for="ComicBook.ImageUrl" />
@@ -43,7 +44,7 @@
         </tr>
         <tr>
             <td>
-                <label>Comic Book Description</label>
+                Comic Book Description
             </td>
             <td>
                 <input asp-for="ComicBook.Description" />
@@ -51,13 +52,13 @@
         </tr>
         <tr>
             <td>
-                <label>Comic Book Issue Date</label>
+                Comic Book Issue Date
             </td>
             <td>
                 <input asp-for="ComicBook.IssueDate" type="datetime" />
             </td>
         </tr>
     </table>
-    <input type="submit" asp-page-handler="Edit" value="Submit Changes"/>
+    <input type="submit" asp-page-handler="Edit" value="Submit Changes" />
 </form>
 

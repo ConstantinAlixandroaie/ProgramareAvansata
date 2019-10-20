@@ -48,6 +48,7 @@ namespace ProgramareAvansataCA.Controllers
             }
             var rv = new ComicBookViewModel()
             {
+                Id = comicBook.Id,
                 Title = comicBook.Title,
                 Author = comicBook.Author,
                 ImageUrl = comicBook.ImageUrl,
@@ -88,9 +89,9 @@ namespace ProgramareAvansataCA.Controllers
         }
         public override async Task Edit(ComicBookViewModel vm)
         {
-            var comicBook = await GetByIdAsync(vm.Id);
+            var comicBook = await _ctx.ComicBooks.FirstOrDefaultAsync(x => x.Id == vm.Id);
             if (comicBook == null)
-                throw new ArgumentException($"A Comic book with the given '{vm.Id}' was not found");
+                throw new ArgumentException($"A comic book with the given '{vm.Id}' was not found");
 
             if (vm.CollectionId != null)
                 comicBook.CollectionId = vm.CollectionId;
@@ -107,9 +108,10 @@ namespace ProgramareAvansataCA.Controllers
             if (!string.IsNullOrEmpty(vm.ImageUrl))
                 comicBook.ImageUrl = vm.ImageUrl;
 
-            if (vm.IssueDate != null)
-                comicBook.IssueDate = vm.IssueDate;
+            //if (vm.IssueDate != null)
+            //    comicBook.IssueDate = vm.IssueDate ?? DateTimeOffset.Now;
 
+            _ctx.Attach(comicBook).State = EntityState.Modified;
             await _ctx.SaveChangesAsync();
 
         }

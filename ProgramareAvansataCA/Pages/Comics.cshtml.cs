@@ -54,5 +54,13 @@ namespace ProgramareAvansataCA.Pages
 
             return Page();
         }
+        public async Task<IActionResult> OnDeleteAsync(int id)
+        {
+            if (!User.Identity.IsAuthenticated)
+                return RedirectToPage("/Login");
+
+             await _comicsController.Delete(id);
+                return Page();
+        }
     }
 }
