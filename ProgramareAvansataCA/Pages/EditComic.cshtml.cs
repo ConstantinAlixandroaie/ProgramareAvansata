@@ -36,18 +36,6 @@ namespace ProgramareAvansataCA.Pages
         }
         public async Task<IActionResult> OnPostEdit(int id)
         {
-            //ComicBook = await _comicsController.GetByIdAsync(id);
-            //_ctx.Attach(ComicBook).State = EntityState.Modified;
-
-            //try
-            //{
-            //    await _ctx.SaveChangesAsync();
-            //}
-            //catch (DbUpdateConcurrencyException e)
-            //{
-
-            //    throw new Exception($"The Comic Book {ComicBook.Title} does not exist", e);
-            //}
             await _comicsController.Edit(ComicBook);
 
             return RedirectToPage("/Comics");
