@@ -23,15 +23,12 @@ namespace ProgramareAvansataCA.Pages
 
         [BindProperty]
         public bool IsById { get; set; }
-        [BindProperty]
-        public bool IsInEdit { get; set; }
-
         public ComicsModel(ComicsDbContext ctx)
         {
             _comicsController = new ComicBookController(ctx);
         }
 
-
+        
         public async Task<IActionResult> OnGet(int? qid = null)
         {
             if (qid != null)

@@ -47,17 +47,32 @@
 else
 {
     <form method="post">
-        <ul>
-            @foreach (var item in Model.ComicBooks)
-            {
-                <li>
-                    <div>
-                        <a href="/Comics/@item.Id" title="@item.Title"> @item.Title</a>
-                        <a href="/EditComic/@item.Id" class="btn">Edit</a>
-                        <button type="submit" asp-page-handler="delete" asp-route-id="@item.Id">Delete</button>
-                    </div>
-                </li>
-            }
-        </ul>
+        <table class="table">
+            <thead>
+
+            </thead>
+            <tbody class="text-center" >
+                @foreach (var item in Model.ComicBooks)
+                {
+                    <tr>
+                        <td>
+                            <img src="https://picsum.photos/100/100?random=@item.Id" />
+                        </td>
+                        <td>
+                            @item.Title
+                        </td>
+                        <td>
+                            <a href="/Comics/@item.Id">Details</a>
+                        </td>
+                        <td>
+                            <a href="/EditComic/@item.Id" class="btn">Edit</a>
+                        </td>
+                        <td>
+                            <button type="submit" asp-page-handler="delete" asp-route-id="@item.Id">Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </form>
 }

@@ -29,7 +29,7 @@ namespace ProgramareAvansataCA.Pages
         public async Task<IActionResult> OnPostAdd()
         {
             await _comicController.Add(comicBook);
-            return Page();
+            return RedirectToPage("/Comics");
         }
 
     }
